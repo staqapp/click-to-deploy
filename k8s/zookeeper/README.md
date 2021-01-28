@@ -151,7 +151,7 @@ It is advised to use stable image reference which you can find on
 Example:
 
 ```shell
-export TAG="3.6.1-20210103-155649"
+export TAG="3.6.1-20200901-092523"
 ```
 
 Alternatively you can use short tag which points to the latest image for selected version.
@@ -204,11 +204,11 @@ export ZOOKEEPER_HEAP_SIZE=1000M
 #### Expand the manifest template
 
 Use `helm template` to expand the template. We recommend that you save the
-expanded manifest file for future updates to the application.
+expanded manifest file for future updates to the application. INSTALL HELM 2!!
 
 ```shell
-helm template chart/zookeeper/chart.yml "${APP_INSTANCE_NAME}" \
-  --debug \
+/usr/local/opt/helm@2/bin/helm template chart/zookeeper \
+  --name "${APP_INSTANCE_NAME}" \
   --namespace "${NAMESPACE}" \
   --set zookeeper.image.name="${IMAGE_ZOOKEEPER}" \
   --set zookeeper.image.tag="${TAG}" \
