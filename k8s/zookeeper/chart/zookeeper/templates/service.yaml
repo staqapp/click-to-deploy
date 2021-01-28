@@ -30,6 +30,7 @@ metadata:
     app.kubernetes.io/name: {{ .Release.Name }}
     app.kubernetes.io/component: zookeeper
 spec:
+  type: NodePort
   ports:
   - port: {{ .Values.zookeeper.clientPort }}
     name: client
