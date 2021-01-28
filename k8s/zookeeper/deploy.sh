@@ -1,4 +1,5 @@
 export CLUSTER=nifi-zookeeper-1
+export PROJECT=nifi-staq-services
 export ZONE=us-east1-b
 export APP_INSTANCE_NAME=zookeeper
 export NAMESPACE=default
@@ -40,5 +41,5 @@ export ZOOKEEPER_HEAP_SIZE=1000M
   --set zookeeper.persistence.storageClass="${DEFAULT_STORAGE_CLASS}" \
   > "${APP_INSTANCE_NAME}_manifest.yaml"
 
-gcloud container clusters get-credentials nifi-zookeeper-1 --zone us-east1-b --project nifi-staq-services
+gcloud container clusters get-credentials "${CLUSTER}" --zone "${ZONE}" --project "${PROJECT}"
 kubectl apply -f "${APP_INSTANCE_NAME}_manifest.yaml" --namespace "${NAMESPACE}"
